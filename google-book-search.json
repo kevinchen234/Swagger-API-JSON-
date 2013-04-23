@@ -80,7 +80,7 @@
                     "parameters": [
                         {
                             "name": "userId",
-                            "description": "ID of user for whom to retrieve bookshelves.",
+                            "description": "ID of user for whom to retrieve bookshelves.  Use userId from Google Plus account",
                             "paramType": "path",
                             "required": true,
                             "allowMultiple": false,
