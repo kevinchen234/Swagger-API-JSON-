@@ -1,0 +1,117 @@
+{
+    "apiVersion": "1",
+    "swaggerVersion": "1.1",
+    "basePath": "https://www.googleapis.com/books/v1",
+    "notes": "Google Book Search API",
+    "resourcePath": "",
+    "apis": [
+        {
+            "path": "/volumes",
+            "description": "Search Google books, free form",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Search Google books, free form",
+                    "notes": "Experiment with the Google Book Search API.  For full documentation, see: https://developers.google.com/books/",
+                    "nickname": "",
+                    "parameters": [
+                        {
+                            "name": "q",
+                            "description": "Search query, free form string",
+                            "paramType": "query",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "filter",
+                            "description": "Filter search results by book type",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "allowableValues": {
+                                "values": [
+                                    "ebooks",
+                                    "free-ebooks",
+                                    "full",
+                                    "paid-ebooks",
+                                    "partial"
+                                ],
+                                "valueType": "LIST"
+                            },
+                            "defaultValue": "json",
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "langRestrict",
+                            "description": "Restrict results to books with this language code; e.g. 'en' or 'fr'.",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 403,
+                            "reason": "Resource Access Denied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "Resource not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/bookshelves",
+            "description": "Retrieves a list of public Bookshelf resource for the specified user.",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Grab book from your own library",
+                    "notes": "Experiment with the Google Book Search API.  For full documentation, see: https://developers.google.com/books/",
+                    "nickname": "",
+                    "parameters": [
+                        {
+                            "name": "userId",
+                            "description": "ID of user for whom to retrieve bookshelves.",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "source",
+                            "description": "String to identify the originator of this request.",
+                            "paramType": "path",
+                            "required": false,
+                            "allowMultiple": false,
+                            "defaultValue": "json",
+                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 403,
+                            "reason": "Resource Access Denied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "Resource not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

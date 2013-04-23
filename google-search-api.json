@@ -1,0 +1,62 @@
+{
+    "apiVersion": "1",
+    "swaggerVersion": "1.1",
+    "basePath": "https://www.googleapis.com/customsearch/v1",
+    "notes": "Google Custom Search API",
+    "resourcePath": "",
+    "apis": [
+        {
+            "path": "/",
+            "description": "Search the Web",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Search the Web",
+                    "notes": "Experiment with the Google Custom Search API.  For full documentation, see: https://developers.google.com/custom-search/",
+                    "nickname": "",
+                    "parameters": [
+                        {
+                            "name": "key",
+                            "description": "Google API Key. Obtain your key here: code.google.com/apis/console",
+                            "paramType": "query",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "q",
+                            "description": "Search query, multiple search terms are s`upported",
+                            "paramType": "query",
+                            "required": true,
+                            "allowMultiple": true,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "cx",
+                            "description": "Custom Search Engine ID. Use the default or create your own engine here: google.com/cse",
+                            "paramType": "query",
+                            "required": true,
+                            "allowMultiple": false,
+                            "defaultValue": "018336726228553634364:6eagseawffy",
+                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 403,
+                            "reason": "Resource Access Denied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "Resource not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

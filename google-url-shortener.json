@@ -1,0 +1,69 @@
+{
+    "apiVersion": "0.1",
+    "swaggerVersion": "1.1",
+    "basePath": "https://www.googleapis.com/urlshortener/v1/url",
+    "notes": "Google URL Shortener.  For full documentation, see: developers.google.com/url-shortener",
+    "resourcePath": "",
+    "apis": [
+        {
+            "path": "/",
+            "description": "Google URL Shortener",
+            "operations": [
+                {
+                    "httpMethod": "POST",
+                    "summary": "Shorten URLs.",
+                    "notes": "To shorten a URL, use POST.  To expand a shortened URL, use GET. \f \t The POST operation is not currently supported from this interface.  Use a curl command in the following format:\n \r curl https://www.googleapis.com/urlshortener/v1/url   -H 'Content-Type: application/json'   -d '{\"longUrl\": \"http://www.google.com/\"}' \n \r For full documentation, see: developers.google.com/url-shortener/",
+                    "nickname": "",
+                    "parameters": [{
+              "name": "longUrl",
+              "description": "The long URL",
+              "dataType": "string",
+              "paramType": "form"
+            }]
+                },
+                {
+                    "httpMethod": "GET",
+                    "summary": "Expand a short URL",
+                    "notes": "Expand a short goo.gl URL back to the original URL.",
+                    "nickname": "",
+                    "parameters": [
+                        {
+                            "name": "shortUrl",
+                            "description": "The short URL to expand, e.g. http://goo.gl/fbsS",
+                            "paramType": "query",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "projection",
+                            "description": "Look up a short URL's analytics",
+                            "paramType": "query",
+                            "required": false,
+                            "allowableValues": {
+                                "values": [
+                                    "FULL"
+                                ],
+                                "valueType": "LIST"
+                            },                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid ID supplied"
+                        },
+                        {
+                            "code": 403,
+                            "reason": "Resource Access Denied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "Resource not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
